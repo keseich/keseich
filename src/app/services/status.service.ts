@@ -61,7 +61,7 @@ export class StatusService {
   private updateGraphs() {
     const thinkingPerStudy =
       _.zipWith(this.status.thinkingPerDay, this.status.studiesPerDay, _.divide)
-        .map(v => _.round(v, 2))
+        .map((v:number) => _.round(v, 2))
     const types: GraphType[] = [
       {name:"studies", color:"blue", series: this.status.studiesPerDay},
       {name:"new learned", color:"lightblue", series: this.status.newPerDay},
@@ -132,7 +132,9 @@ export class StatusService {
     this.currentQuestion = this.qsStillIncorrect[0];
     this.currentQuestion.options = this.currentQuestion.options ?
       _.shuffle(this.currentQuestion.options) : undefined;
-    this.isAudioQuestion = this.currentQuestion.question.indexOf('.mp3') > 0;
+    console.log(this.currentQuestion);
+    this.isAudioQuestion = this.currentQuestion.question.indexOf('.m4a') > 0;
+    console.log(this.currentQuestion.question);
     this.showInfo = !this.isAudioQuestion
       && !(this.currentStudy.set == 1 && this.currentStudy.direction == 1);
     this.currentAnswer = this.answers.get(this.currentQuestion);
