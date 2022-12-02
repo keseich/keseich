@@ -13,7 +13,7 @@ export class StudyComponent {
   private checked: boolean;
   private correct: boolean;
   private bgColor: string;
-  private TIME_LIMIT = 10;
+  private TIME_LIMIT = 60;
   private timeRemaining: number;
   private timer;
 
